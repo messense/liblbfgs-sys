@@ -14,6 +14,7 @@ fn fail_on_empty_directory(name: &str) {
 
 fn build() {
     let mut cfg = cmake::Config::new("");
+    cfg.define("CMAKE_POLICY_VERSION_MINIMUM", "3.5");
     let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap();
     if target_os == "macos" {
         let target_arch = std::env::var("CARGO_CFG_TARGET_ARCH").unwrap();
